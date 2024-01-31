@@ -13,4 +13,4 @@
    1. GET /flood-warnings/count/group-by/states
    2. GET /flood-warnings/count/group-by/water
    3. GET /flood-warnings/count/group-by/rainfall
-# national-states-app
+
