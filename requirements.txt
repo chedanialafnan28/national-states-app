@@ -1,0 +1,6 @@
+fastapi[all]
+uvicorn
+fastapi-utils
+httpx
+mysql-connector-python
+flask
