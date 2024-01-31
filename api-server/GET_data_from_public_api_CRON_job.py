@@ -6,6 +6,7 @@ from .src.flood_warning_api import upsert_to_database, perform_flood_warning_get
 #using FastAPI
 app = FastAPI()
 
+#url by government api test test
 @app.get("/flood-warnings/count/group-by/states")
 def get_flood_warnings_count_groupby_state():
     response = requests.get( "https://api.data.gov.my/flood-warning/" )
