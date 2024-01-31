@@ -3,4 +3,5 @@ uvicorn
 fastapi-utils
 httpx
 mysql-connector-python
-flask
+Flask
+requests
