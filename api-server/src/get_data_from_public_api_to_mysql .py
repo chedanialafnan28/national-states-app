@@ -25,7 +25,7 @@ def fetch_and_update():
 
             for item in api_data:
                 query = """
-                    INSERT INTO national_state 
+                    INSERT INTO national_state2 
                     (station_id, station_name, latitude, longitude, district, state, sub_basin, main_basin, station_type, 
                     water_level_current, water_level_indicator, water_level_normal_level, water_level_alert_level, 
                     water_level_warning_level, water_level_danger_level, water_level_increment, water_level_update_datetime, 
@@ -96,7 +96,7 @@ def fetch_and_update():
         print(f"Error: {e}")
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(fetch_and_update, 'interval', seconds=30, max_instances=10)
+scheduler.add_job(fetch_and_update, 'interval', seconds=30, max_instances=2)
 scheduler.start()
 
 if __name__ == "__main__":
