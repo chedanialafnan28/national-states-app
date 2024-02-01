@@ -1,8 +1,22 @@
-from flask import Flask, jsonify
 import mysql.connector
+from flask import Flask, jsonify
+from apscheduler.schedulers.background import BackgroundScheduler
+from src.flood_warning_api import upsert_to_database, perform_flood_warning_get_api
 
 #using Flask
 app = Flask(__name__)
+
+def scheduled_flood_warning_get_api():
+    data = perform_flood_warning_get_api()
+    upsert_to_database(data)
+
+scheduler = BackgroundScheduler(daemon=True)
+scheduler.add_job(
+    func=scheduled_flood_warning_get_api,
+    trigger="interval",
+    seconds=30  # CRON job runs every 30 seconds
+)
+scheduler.start()
 
 db_config = {
     'host': 'localhost',
@@ -73,6 +87,9 @@ def get_rainfall_data():
 
     except Exception as e:
         return jsonify({'error': str(e)})
+
+
+
 
 if __name__ == '__main__':
         app.run(debug=True)
