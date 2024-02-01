@@ -13,6 +13,7 @@
 ## API server
 1. Create API server that allows FETCH data from MYSQL to RestAPI
 2. API expectation
+
    a) To see list of water data stations by state
    1. GET http://127.0.0.1:5000/flood-warnings/group-by/list_station/selangor
    2. GET http://127.0.0.1:5000/flood-warnings/group-by/list_station/negeri_sembilan
